@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Christmas by An Post</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+  </head>
+
+<body>
+  <div class="snowfall" aria-hidden="true"></div>
+
+  <h1>Christmas by An Post</h1>
+  <div class="snow-divider"></div>
+
+ <script>
+  const snowContainer = document.querySelector('.snowfall');
+  const snowChars = ['❄', '❅', '❆'];
+
+  function createFlake() {
+    const flake = document.createElement('span');
+    flake.classList.add('snowflake');
+    flake.textContent = snowChars[Math.floor(Math.random() * snowChars.length)];
+    flake.style.left = Math.random() * 100 + '%';
+    flake.style.fontSize = (Math.random() * 8 + 9) + 'px';            // slightly bigger average
+    flake.style.animationDuration = (Math.random() * 4 + 4.5) + 's';   // 4.5s – 8.5s
+    flake.style.opacity = Math.random() * 0.5 + 0.55;
+
+    snowContainer.appendChild(flake);
+    setTimeout(() => flake.remove(), 10000); // keep long enough for slow falls
+  }
+
+  setInterval(createFlake, 280); // gentle frequency
+</script>
+
+  </script>
+</body>
+
+</html>
