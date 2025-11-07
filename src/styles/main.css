@@ -3,7 +3,8 @@
 /* Load the White Xmas font */
 @font-face {
   font-family: 'WhiteXmas';
-  src: url('/fonts/WhiteXmas-Regular.otf') format('opentype');
+  src: url('/An-Post-Christmas/fonts/WhiteXmas-Regular.otf') format('opentype');
+  /* or WhiteXmasStar-Regular.otf if that’s your actual file */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -42,7 +43,8 @@ h1 {
   transform: translate(-50%, -14px);  /* keep it snug under the heading */
   width: 140vw;                       /* wider than the viewport so it overhangs */
   height: 120px;
-  background-image: url('/img/snow_divider.png');
+  /* snow image */
+background-image: url('/An-Post-Christmas/img/snow_divider.png');
   background-repeat: no-repeat;       /* no tiling = no seams */
   background-position: center top;    /* center the snow under the title */
   background-size: 160vw auto;        /* scale proportionally across the full width */
