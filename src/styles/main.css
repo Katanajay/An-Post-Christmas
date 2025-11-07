@@ -2,97 +2,116 @@
 
 /* Load the White Xmas font */
 @font-face {
-  font-family: 'WhiteXmas';
-  src: url('/An-Post-Christmas/fonts/WhiteXmas-Regular.otf') format('opentype');
-  /* or WhiteXmasStar-Regular.otf if that’s your actual file */
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'WhiteXmas';
+    src: url('/An-Post-Christmas/fonts/WhiteXmas-Regular.otf') format('opentype');
+    /* or WhiteXmasStar-Regular.otf if that’s your actual file */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-  --green: #00a76a;     /* keep this for accents later */
-  --red: #8b0000;       /* vintage, deep Christmas red */
-  --snow-drop: 190px;   /* how far flakes fall; tweak to meet the divider bottom */
+    --green: #00a76a;
+    /* keep this for accents later */
+    --red: #8b0000;
+    /* vintage, deep Christmas red */
+    --snow-drop: 190px;
+    /* how far flakes fall; tweak to meet the divider bottom */
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(circle at 50% 30%, #9b0b0b 0%, #5a0000 100%);
-  color: white;
-  height: 100vh;
-  font-family: 'WhiteXmas', Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-x: hidden; /* stop sideways scroll with wide divider */
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at 50% 30%, #9b0b0b 0%, #5a0000 100%);
+    color: white;
+    height: 100vh;
+    font-family: 'WhiteXmas', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    /* stop sideways scroll with wide divider */
 }
 
 h1 {
-  margin: 12px 0 0;        /* top = 12px, bottom = 0 */
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: normal;
-  color: white;
+    margin: 12px 0 0;
+    /* top = 12px, bottom = 0 */
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: normal;
+    color: white;
 }
 
 .snow-divider {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -14px);  /* keep it snug under the heading */
-  width: 140vw;                       /* wider than the viewport so it overhangs */
-  height: 120px;
-  /* snow image */
-background-image: url('/An-Post-Christmas/img/snow_divider.png');
-  background-repeat: no-repeat;       /* no tiling = no seams */
-  background-position: center top;    /* center the snow under the title */
-  background-size: 160vw auto;        /* scale proportionally across the full width */
-  pointer-events: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -14px);
+    /* keep it snug under the heading */
+    width: 140vw;
+    /* wider than the viewport so it overhangs */
+    height: 120px;
+    /* snow image */
+    background-image: url('/An-Post-Christmas/img/snow_divider.png');
+    background-repeat: no-repeat;
+    /* no tiling = no seams */
+    background-position: center top;
+    /* center the snow under the title */
+    background-size: 160vw auto;
+    /* scale proportionally across the full width */
+    pointer-events: none;
 }
 
 /* --- Snowfall effect --- */
 .snowfall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--snow-drop);     /* only snow until just above/at the divider */
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 5;                   /* flakes above bg but below UI */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--snow-drop);
+    /* only snow until just above/at the divider */
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+    /* flakes above bg but below UI */
 }
 
 .snowflake {
-  position: absolute;
-  top: -10px;
-  color: white;
-  font-size: 0.8rem;
-  opacity: 0.9;
-  animation: fall linear forwards;
-  will-change: transform, opacity, filter; /* smoother animation */
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    animation: fall linear forwards;
+    will-change: transform, opacity, filter;
+    /* smoother animation */
 }
 
 /* Melt + drift animation (flakes reach the divider, fade & soften) */
 @keyframes fall {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-  60% {
-    transform: translateY(calc(var(--snow-drop) * 0.6)) translateX(10px) rotate(200deg) scale(1);
-    opacity: 0.9;
-    filter: blur(0);
-  }
-  90% {
-    transform: translateY(calc(var(--snow-drop) * 0.95)) translateX(-8px) rotate(320deg) scale(0.92);
-    opacity: 0.35;             /* start melting here */
-    filter: blur(0.5px);
-  }
-  100% {
-    transform: translateY(var(--snow-drop)) translateX(-10px) rotate(360deg) scale(0.88);
-    opacity: 0.08;             /* almost gone at the bottom edge */
-    filter: blur(1px);          /* soft “melt” look */
-  }
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    60% {
+        transform: translateY(calc(var(--snow-drop) * 0.6)) translateX(10px) rotate(200deg) scale(1);
+        opacity: 0.9;
+        filter: blur(0);
+    }
+
+    90% {
+        transform: translateY(calc(var(--snow-drop) * 0.95)) translateX(-8px) rotate(320deg) scale(0.92);
+        opacity: 0.35;
+        /* start melting here */
+        filter: blur(0.5px);
+    }
+
+    100% {
+        transform: translateY(var(--snow-drop)) translateX(-10px) rotate(360deg) scale(0.88);
+        opacity: 0.08;
+        /* almost gone at the bottom edge */
+        filter: blur(1px);
+        /* soft “melt” look */
+    }
 }
